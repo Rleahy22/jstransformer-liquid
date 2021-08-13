@@ -1,16 +1,16 @@
-'use strict'
+'use strict';
 
-const extend = require('extend-shallow')
-const Liquid = require('liquid-node')
+const extend = require('extend-shallow');
+const { Liquid } = require('liquidjs');
 
-const engine = new Liquid.Engine()
+const engine = new Liquid();
 
-exports.name = 'liquid'
-exports.outputFormat = 'html'
+exports.name = 'liquid';
+exports.outputFormat = 'html';
 
 exports.renderAsync = function (str, options, locals) {
-  return engine.parseAndRender(str, extend({}, options, locals))
-}
+  return engine.parseAndRender(str, extend({}, options, locals));
+};
 
 /**
  * Compile the template asyncronously.
